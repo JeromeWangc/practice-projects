@@ -56,3 +56,15 @@ article img {
     outline-width: .1em;
     outline-style: solid;
 }
+#about header {
+    background-image: url(../images/about.png);
+}
+#photos header {
+    background-image: url(../images/photos.jpg);
+}
+#live header {
+    background-image: url(../images/live.jpg);
+}
+#contact header {
+    background-image: url(../images/contact.jpg);
+}
