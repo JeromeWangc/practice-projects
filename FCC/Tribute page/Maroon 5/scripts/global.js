@@ -36,11 +36,47 @@ function highlightPage() {
             links[i].className = 'here';
             //get the url, give the value to body element
             var linktext = links[i].lastChild.nodeValue.toLowerCase();
-            document.dody.setAttribute('id',linktext);
+            document.body.setAttribute('id',linktext);
         }
     }
 }
 
+function showSection(id){
+    //get all the sections
+    var sections = document.getElementsByTagName('section');
+    // set the style of display
+    for (var i = 0; i < sections.length; i++){
+        if (sections[i].getAttribute('id') != id){
+            sections[i].style.display = 'none';
+        }else{
+            sections[i].style.display = 'block';
+        }
+    }
+}
+
+function prepareInternalnav(){
+    //basic test
+    if (!document.getElementsByTagName) return false;
+    if (!document.getElementById) return false;
+    var articles = document.getElementsByTagName('article');
+    if (articles.length == 0) return false;
+    var navs = articles[0].getElementsByTagName('nav');
+    if (navs.length == 0) return false;
+    var nav = navs[0];
+    var links = nav.getElementsByTagName('a');
+    //hide all the text and bound the event
+    for (var i = 0; i < links.length; i++){
+        var sectionId = links[i].getAttribute('href').split('#')[1];
+        if (!document.getElementById(sectionId)) continue;
+        document.getElementById(sectionId).style.display = 'none';
+        links[i].destination = sectionId;
+        links[i].onclick = function(){
+            showSection(this.destination);
+            return false;
+        }
+    }
+}
 window.onload = function(){
     highlightPage();
+    prepareInternalnav();
 }
