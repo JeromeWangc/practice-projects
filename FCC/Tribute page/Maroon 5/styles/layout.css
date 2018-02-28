@@ -68,3 +68,6 @@ article img {
 #contact header {
     background-image: url(../images/contact.jpg);
 }
+#imagegallery li {
+    display: inline;
+}
