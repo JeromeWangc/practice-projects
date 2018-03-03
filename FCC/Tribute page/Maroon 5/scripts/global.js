@@ -125,6 +125,17 @@ function prepaerGallery(){
         }
     }
 }
+
+function stripeTables() {
+    //basic test
+    if (!document.getElementsByTagName) return false;
+    //get the table element
+    var tables = document.getElementsByTagName('table');
+    for (var i = 0; i < tables.length; i++){
+        var odd = false;
+        var rows = table[i].getElementsByTagName("tr");
+    }
+}
 window.onload = function(){
     highlightPage();
     prepareInternalnav();
