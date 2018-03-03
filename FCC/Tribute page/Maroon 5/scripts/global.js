@@ -131,9 +131,33 @@ function stripeTables() {
     if (!document.getElementsByTagName) return false;
     //get the table element
     var tables = document.getElementsByTagName('table');
+    //visite every table
     for (var i = 0; i < tables.length; i++){
         var odd = false;
-        var rows = table[i].getElementsByTagName("tr");
+        var rows = tables[i].getElementsByTagName("tr");
+        //compare every row
+        for (var j = 0; j < rows.length; j++){
+            if(odd == true){
+                addClass(rows[j],'odd');
+                odd= false;
+            }else{
+                odd = true
+            }
+        }
+    }
+}
+
+function hightlightRows() {
+    if (!document.getElementsByTagName) return false;
+    var rows = document.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++){
+        rows[i].oldClassName = rows[i].className
+        rows[i].onmouseover = function(){
+            addClass(this,'highlight')
+        };
+        rows[i].onmouseout = function(){
+            this.className = this.oldClassName
+        };
     }
 }
 window.onload = function(){
@@ -141,4 +165,6 @@ window.onload = function(){
     prepareInternalnav();
     prepaerPlaceholder();
     prepaerGallery();
+    stripeTables();
+    hightlightRows();
 }
