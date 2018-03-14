@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selectors</title>
+    <link rel="stylesheet" href="styles/selectors.css">
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //$('#one').css("background","#bbffaa");
+            //$('.mini').css("background","#bbffaa");
+            //$('div').css("background","#bbffaa");
+            $('span, #two').css("background","#bbffaa");
+        });
+    </script>
+</head>
+<body>
+    <div class="one" id="one">
+        <div class="mini">class is mini</div>
+    </div>
+
+    <div class="one" id="two" title="test">
+        id is two, class is one, title is test
+        <div class="mini" title="other">class is mini, title is other</div>
+        <div class="mini" title="test">class is mini, title is test</div>
+    </div>
+    
+    <div class="one">
+        <div class="mini">class is mini</div>
+        <div class="mini">class is mini</div>
+        <div class="mini">class is mini</div>
+        <div class="mini"></div>
+    </div>
+
+    <div class="one">
+        <div class="mini">class is mini</div>
+        <div class="mini">class is mini</div>
+        <div class="mini">class is mini</div>
+        <div class="mini" title="tests">class is mini, title is tests</div>
+    </div>
+
+    <div style="display:none;" class="none">
+        style's display is none
+    </div>
+
+    <div class="hide">class is hide</div>
+
+    <div>include an input type is 'hidden' <input type="hidden" size="8"></div>
+    <span id="mover">actions</span>
+</body>
+</html>
